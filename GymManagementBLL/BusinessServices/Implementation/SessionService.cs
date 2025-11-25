@@ -86,7 +86,7 @@ namespace GymManagementBLL.BusinessServices.Implementation
             return _mapper.Map<UpdateSessionViewModel>(session);
         }
 
-        public bool UpdateMemberDetails(int sessionId, UpdateSessionViewModel updateSession)
+        public bool UpdateSessionDetails(int sessionId, UpdateSessionViewModel updateSession)
         {
             try
             {
@@ -132,6 +132,24 @@ namespace GymManagementBLL.BusinessServices.Implementation
         }
 
 
+        public IEnumerable<TrainerSelectViewModel> GetTrainerForDropDown()
+        {
+            var trainers = _unitOfWork.GetRepository<Trainer>().GetAll();
+            if (trainers is null)
+                return [];
+
+            return _mapper.Map<IEnumerable<TrainerSelectViewModel>>(trainers);
+        }
+
+        public IEnumerable<CategorySelectViewModel> GetCategoryForDropDown()
+        {
+            var categories = _unitOfWork.GetRepository<Category>().GetAll();
+            if (categories is null)
+                return [];
+
+            return _mapper.Map<IEnumerable<CategorySelectViewModel>>(categories);
+        }
+
         #region Helper Methods
         private bool IsTrainerExist(int trainerId)
         {
@@ -170,6 +188,7 @@ namespace GymManagementBLL.BusinessServices.Implementation
 
             return true;
         }
+
         #endregion
     }
 }
