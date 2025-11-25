@@ -33,10 +33,14 @@
 			</div>
 			<div class="row g-3">
 				<div class="mt-2">
-					<img id="photoPreview" src="~/images/User.jpg.jpeg" alt="Photo Preview" style="max-width: 200px; "
+					<img id="photoPreview" src="#" alt="Photo Preview" style="max-width: 200px; display: none;"
 						 class="img-thumbnail" />
 				</div>
-                 <div class="col-12 col-md-6">
+				<label asp-for="PhotoFile" class="control-label">Profile Photo <span class="text-danger">*</span></label>
+				<input asp-for="PhotoFile" type="file" class="form-control" accept="images/*" id="photoInput" required />
+				<span asp-validation-for="PhotoFile" class="text-danger"></span>
+				<small class="form-text text-muted">Max size: 5 MB. Allowed types: JPG, PNG, JPEG (Required)</small>
+				<div class="col-12 col-md-6">
 					<label asp-for="Name" class="form-label"></label>
 					<input asp-for="Name" type="text" class="form-control" />
 					<span asp-validation-for="Name" class="text-danger"></span>

@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<MemberViewModel>
 
-
 <div class="container">
 	<main role="main" class="pb-3">
 
@@ -35,9 +34,7 @@
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th>
-
-								</th>
+								<th><span>@nameof(MemberViewModel.Photo)</span></th>
 								<th><span>@nameof(MemberViewModel.Name)</span></th>
 								<th><span>@nameof(MemberViewModel.Email)</span></th>
 								<th><span>@nameof(MemberViewModel.Gender)</span></th>
@@ -51,12 +48,18 @@
 							{
 								<tr>
 									<td>
-										<div class="text-center mt-3">
-
-											<img src="~/images/User.jpg.jpeg" alt="Member Photo" class="rounded-circle"
-												 style="width: 40px; height: 40px; object-fit: cover; border: 3px solid #fff; margin-top: -60px;" />
-
-										</div>
+										<span class="avatar">
+											@if (string.IsNullOrEmpty(member.Photo))
+											{
+												<img src="~/images/User.jpg" alt="Default Avatar" class="rounded-circle"
+													 style="width: 40px; height: 40px;" />
+											}
+											else
+											{
+												<img src="~/images/members/@member.Photo" alt="Default Avatar" class="rounded-circle"
+													 style="width: 40px; height: 40px;" />
+											}
+										</span>
 									</td>
 									<td><span>@member.Name</span></td>
 									<td><span>@member.Email</span></td>

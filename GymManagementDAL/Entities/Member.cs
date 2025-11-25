@@ -8,7 +8,7 @@ namespace GymManagementDAL.Entities
 {
     public class Member:GymUser
     {
-        public string? Photo { get; set; }
+        public string? Photo { get; set; } 
 
         #region Relationships
 

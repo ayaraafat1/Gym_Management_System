@@ -38,10 +38,9 @@ namespace GymManagementDAL.Repositories.Implementation
 
         public IEnumerable<TEntity> GetAll(Func<TEntity, bool>? condition = null)
         {
-           if(condition is null)
-               return _dbContext.Set<TEntity>().AsNoTracking().ToList();
-
-          else
+            if (condition is null)
+                return _dbContext.Set<TEntity>().AsNoTracking().ToList();
+            else
                 return _dbContext.Set<TEntity>().AsNoTracking().Where(condition).ToList();
 
 
