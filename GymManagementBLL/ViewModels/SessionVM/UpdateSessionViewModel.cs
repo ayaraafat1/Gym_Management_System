@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GymManagementBLL.ViewModels.SessionVM
 {
-    internal class UpdateSessionViewModel
+    public class UpdateSessionViewModel
     {
 
         [Required(ErrorMessage = "Description is required")]

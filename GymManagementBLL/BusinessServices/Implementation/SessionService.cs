@@ -12,7 +12,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace GymManagementBLL.BusinessServices.Implementation
 {
-    internal class SessionService : ISessionService
+    public class SessionService : ISessionService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
