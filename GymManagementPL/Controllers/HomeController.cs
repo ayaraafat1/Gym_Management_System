@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GymManagementBLL.BusinessServices.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GymManagementPL.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        private readonly IAnalyticService _analtyicService;
 
-        public RedirectResult Redirect()
+        public HomeController(IAnalyticService analtyicService)
         {
-            return Redirect("https://www.facebook.com/");
+            _analtyicService = analtyicService;
+        }
+        //BaseUrl/Home/Index
+        public ActionResult Index()
+        {
+            var data = _analtyicService.GetHomeAnalyticsViewModel();
+            return View(data);
         }
     }
 }

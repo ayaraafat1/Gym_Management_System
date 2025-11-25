@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GymManagementBLL.BusinessServices.Interfaces
 {
-    internal interface IMemberService
+    public interface IMemberService
     {
         IEnumerable<MemberViewModel> GetAllMembers();
 
